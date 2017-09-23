@@ -4,7 +4,7 @@ This model is testing the weight of fishes based on the fishing method.
 
 # Importing data and checking base assumptions
 mydata <- read.csv("testdata.csv")  
-fitmodel <- lm(Weight~Type, data=mydata)  
+fitmodel <- lm(Weight|Type, data=mydata)  
 par(mfrow=c(1,2))  
 names(fitmodel)  
 plot(fitmodel$res~fitmodel$fit, xlab="Fitted value", ylab="Residuals")  
@@ -14,7 +14,7 @@ qqline(fitmodel$res)
 // Not sure how to attach plots, but will do so when I figure that out. For the time being,
 // trust that I know the assumptions fail. As such, a permutations test must be carried out.
 # Running a for loop in r  
-fitmodel <- lm(Weight~Type, data=mydata)  
+fitmodel <- lm(Weight|Type, data=mydata)  
 fitperm <- anova(fitmodel)$F[1]  
 fitperm  
 N <- 1000  
