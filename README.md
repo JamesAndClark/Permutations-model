@@ -11,8 +11,8 @@ plot(fitmodel$res~fitmodel$fit, xlab="Fitted value", ylab="Residuals")
 abline(h=0,col="gray")  
 qqnorm(fitmodel$res,main="")  
 qqline(fitmodel$res)  
-// Not sure how to attach plots, but will do so when I figure that out. For the time being,
-// trust that I know the assumptions fail. As such, a permutations test must be carried out.
+// I have attached the plots in an issue. Looking at them we can see our base assumptions of normality and constant variance
+are not met, justifying the use of a permuations test.
 # Running a for loop in r  
 fitmodel <- lm(Weight|Type, data=mydata)  
 fitperm <- anova(fitmodel)$F[1]  
